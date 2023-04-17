@@ -9,7 +9,7 @@ function Card(params) {
 
     const addtocart = (title) => {
         let bookCart = params.bookCart.slice();
-        if (bookCart.some((ele) => {return ele==title})) {
+        if (bookCart.some((ele) => {return ele===title})) {
             bookCart = bookCart.filter((ele) => { return (ele !== title) });
         } else {
             bookCart.push(title);
@@ -20,6 +20,8 @@ function Card(params) {
             params.CartDisplay.setIsVisible(true);
         }
     }
+
+    let carted = params.bookCart.some((ele) => {return ele===bookTitle}) ? "carted" : "atc";
 
     return (
         <div className="bookcard">
@@ -34,7 +36,7 @@ function Card(params) {
                 <div className="backside-bookcard">
                     <p className="book-description">{bookDescription}</p>
                     <h2 className="book-price">Rs. {bookPrice}</h2>
-                    <button className={`add-to-cart ${params.bookCart.some((ele) => {return ele==bookTitle}) ? "carted" : "atc"}`} onClick={() => addtocart(bookTitle)}></button>
+                    <button className={`add-to-cart ${carted}`} onClick={() => addtocart(bookTitle)}></button>
                 </div>
             </div>
         </div>
