@@ -2,7 +2,8 @@ import "./Cart.css";
 
 function Cart(params) {
     return (
-        <div id="myCart" style={{display : (params.isVisible ? "flex" : "none")}} className={(params.visibleNav ? "myCart-low" : "")}>
+        <div className="cart-outer" style={{display : (params.isVisible ? "block" : "none")}}>
+        <div id="myCart" className={(params.visibleNav ? "myCart-low" : "")}>
             {params.bookCart.length ? (
                 <>
                     <h1><span>Your Cart</span></h1>
@@ -13,6 +14,7 @@ function Cart(params) {
             ) : (
                 <h1>Your Cart is <span>Empty</span></h1>
             )}
+        </div>
         </div>
     );
 }
