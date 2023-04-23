@@ -54,8 +54,7 @@ section#Intro{
     border-color: white;
 }
 .search-bar button:hover{
-    font-size: 1.2em;
-    background-color: #FFED00;
+    scale: 1.2;
 }
 
 
